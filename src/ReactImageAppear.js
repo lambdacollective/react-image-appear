@@ -46,7 +46,8 @@ class ReactImageAppear extends Component {
             src,
             onLoad: this.imageOnLoad,
             style: {
-              opacity: 0
+              opacity: 0,
+              position: "absolute"
             },
             className,
             ref: ref => {
@@ -69,7 +70,8 @@ class ReactImageAppear extends Component {
         imgComponent: React.createElement("img", {
           src,
           style: {
-            animation: `${animation} ${animationDuration} ${easing}`
+            animation: `${animation} ${animationDuration} ${easing}`,
+            position: "absolute"
           },
           className
         })
