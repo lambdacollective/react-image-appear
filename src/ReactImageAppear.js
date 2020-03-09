@@ -63,7 +63,14 @@ class ReactImageAppear extends Component {
   }
 
   imageOnLoad() {
-    const { src, animation, animationDuration, easing, className } = this.props;
+    const {
+      src,
+      animation,
+      animationDuration,
+      easing,
+      className,
+      onClick
+    } = this.props;
 
     this.setState((prevState, props) => {
       return {
@@ -73,7 +80,8 @@ class ReactImageAppear extends Component {
             animation: `${animation} ${animationDuration} ${easing}`,
             position: "absolute"
           },
-          className
+          className,
+          onClick: onClick
         })
       };
     });
@@ -175,7 +183,8 @@ ReactImageAppear.propTypes = {
   animationDuration: PropTypes.string,
   easing: PropTypes.string,
   showLoader: PropTypes.bool,
-  className: PropTypes.string
+  className: PropTypes.string,
+  onClick: PropTypes.func
 };
 
 ReactImageAppear.defaultProps = {
@@ -189,7 +198,10 @@ ReactImageAppear.defaultProps = {
   animationDuration: ANIMATION_DURATION,
   easing: EASING,
   showLoader: true,
-  className: ""
+  className: "",
+  onClick: () => {
+    console.log("image clicked");
+  }
 };
 
 export default ReactImageAppear;
